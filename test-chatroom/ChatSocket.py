@@ -19,7 +19,7 @@ class WSHandler(websocket.WebSocketHandler):
         #bot.train("chatterbot.corpus.english.greetings")
         #bot.train("chatterbot.corpus.english.conversations")
         if (len(rooms) == 0):
-            new_room = Room(2)
+            new_room = Room(4)
             self.current_room = new_room
             rooms.append(new_room)
             print("created new room")
