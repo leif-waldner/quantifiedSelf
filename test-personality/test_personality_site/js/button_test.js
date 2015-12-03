@@ -26,11 +26,11 @@ onClick: function() {
 render: function() {
     return (
         <div>
-            <button id="Strongly Agree" onClick={this.onClick}>Strongly Agree</button>
-            <button id="Agree" onClick={this.onClick}>Agree</button>
-            <button id="No Opinion" onClick={this.onClick}>No Opinion</button>
-            <button id="Disagree" onClick={this.onClick}>Disagree</button>
-            <button id="Strongly Disagree" onClick={this.onClick}>Strongly Disagree</button>
+            <button className="btn" id="Strongly Agree" onClick={this.onClick}>Strongly Agree</button>
+            <button className="btn" id="Agree" onClick={this.onClick}>Agree</button>
+            <button className="btn" id="No Opinion" onClick={this.onClick}>No Opinion</button>
+            <button className="btn" id="Disagree" onClick={this.onClick}>Disagree</button>
+            <button className="btn" id="Strongly Disagree" onClick={this.onClick}>Strongly Disagree</button>
         </div>
     )
 }
