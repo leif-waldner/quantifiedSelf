@@ -1,9 +1,10 @@
-function question_change(state) {
+function question_change(index) {
     var data = [
         {id: 1, text: "This is one comment"},
         {id: 2, text: "This is *another* comment"}
     ];
-    document.getElementById('question').innerHTML = data[state].text;
+    document.getElementById('question').innerHTML = data[index].text;
+    console.log(index);
 }
 
 function social_media_change(state) {
@@ -16,24 +17,25 @@ function social_media_change(state) {
 
 var Button_Click = React.createClass({
     getInitialState: function() {
-        return {count: 0};
-},
-onClick: function() {
-    social_media_change(this.state.count);
-    question_change(this.state.count);
-    this.state.count += 1;
-},
-render: function() {
-    return (
-        <div>
-            <button className="btn" id="Strongly Agree" onClick={this.onClick}>Strongly Agree</button>
-            <button className="btn" id="Agree" onClick={this.onClick}>Agree</button>
-            <button className="btn" id="No Opinion" onClick={this.onClick}>No Opinion</button>
-            <button className="btn" id="Disagree" onClick={this.onClick}>Disagree</button>
-            <button className="btn" id="Strongly Disagree" onClick={this.onClick}>Strongly Disagree</button>
-        </div>
+        return {button_data: [], count: 0};
+    },
+    handleClick: function(id) {
+        this.state.button_data.push({"id": id, "question": question_change(this.state.count)});
+        social_media_change(this.state.count);
+        this.state.count += 1;
+        console.log(this.state.button_data);
+    },
+    render: function() {
+        return (
+            <div>
+                <button className="btn" id="Strongly Agree" onClick={this.handleClick.bind(this, 1)}>Strongly Agree</button>
+                <button className="btn" id="Agree" onClick={this.handleClick.bind(this, 2)}>Agree</button>
+                <button className="btn" id="No Opinion" onClick={this.handleClick.bind(this, 3)}>No Opinion</button>
+                <button className="btn" id="Disagree" onClick={this.handleClick.bind(this, 4)}>Disagree</button>
+                <button className="btn" id="Strongly Disagree" onClick={this.handleClick.bind(this, 5)}>Strongly Disagree</button>
+            </div>
     )
-}
+    }
 });
 
 ReactDOM.render(
